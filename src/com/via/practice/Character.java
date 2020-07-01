@@ -1,53 +1,44 @@
-package Char;
+package com.via.practice;
 
 import java.util.ArrayList;
 
 public class Character {
-	
+
 	private String mName;
 	private int mLevel;
 
 	private ArrayList<Item> mItems;
 	private ArrayList<Skill> mSkills;
-	/*
-	private String _Name;
-	private int _Level;
-	*/
+
 	private long mGUID;
-	
+
 	private ItemManager mItemManager;
-	
-	public Character(String name,long guid) {
+
+	public Character(String name, long guid) {
 		mName = name;
 		mLevel = 1;
 		mItems = new ArrayList<Item>();
 		mSkills = new ArrayList<Skill>();
 		mGUID = guid;
-		
+
 		mItemManager = new ItemManager();
-		/*
-		this.mName = name;
-		this.mLevel = 1;
-		*/
-		/*
-		_Name = name;
-		_Level = 1;
-		*/
+
 		initItems();
 	}
+
 	private void initItems() {
-		createItem(ItemDefine.BLACK_STICK,1);
-		createItem(ItemDefine.BLUE_STICK, 3);
-		createItem(ItemDefine.PINK_STICK, 5);
-		createItem(ItemDefine.YELLOW_STICK,2);
+		createItem(ItemDef.AXE, 1);
+		createItem(ItemDef.HEALING_POTION, 3);
+		createItem(ItemDef.DIRTY_PANTS, 1);
+		createItem(ItemDef.DAGGER, 1);
 	}
 
-	public boolean createItem(int itemCode, int itemAcount) {
-		mItems.add(mItemManager.createItem(itemCode, itemAcount));
+	public boolean createItem(int itemCode, int itemCount) {
+		mItems.add(mItemManager.createItem(itemCode, itemCount));
 		return true;
 	}
+
 	public boolean removeItem(long guid) {
 		return true;
 	}
-
 }
